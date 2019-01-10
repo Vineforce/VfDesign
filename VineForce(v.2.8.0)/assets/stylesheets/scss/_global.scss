@@ -1,0 +1,295 @@
+body{
+    font-family: $font-Muso;
+    font-size: 1.4rem;
+    color: $color-grey-dark-4;
+    line-height: 1.7;
+    font-weight: 400;
+    background-color: $color-grey-light-4;
+}
+a:focus {
+    outline: none;
+    outline-offset: 0;
+}
+:focus{
+    outline:none;
+}
+.no-bg{
+    background-color: transparent !important;
+    @include box-shadow (none !important);
+}
+.contentMore{
+    background-color: transparent;
+    color:$color-grey-dark-4;
+    font-size:12px;
+    font-weight: 500;
+    font-family: $font-Muso500;
+    margin-left: 5px;
+    padding:2px 7px;
+    vertical-align: top;
+    display: inline-block;
+}
+.badge{
+    background-image: linear-gradient(90deg, $color-tertiary-medium 0%, $color-tertiary-light 50%, $color-tertiary-dark 100%);
+    background-image: -moz-linear-gradient( 90deg, rgb(93,201,255) 0%, rgb(99,154,245) 50%, rgb(89,94,255) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(93,201,255) 0%, rgb(99,154,245) 50%, rgb(89,94,255) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(93,201,255) 0%, rgb(99,154,245) 50%, rgb(89,94,255) 100%);
+    border-image-slice: 1;
+    color: $color-white;
+    font-weight: normal !important;
+    &-dark{
+        background-color: $color-grey-light-4;
+    }
+    &-light{
+        background-color: $color-grey-light-3;
+    }
+    &-total{
+        background: $color-tertiary-light;
+        color:$color-white;
+        padding: 3px 6px;
+        border-radius: 4px;
+    }
+    &-modal{
+        margin-top: 2px;
+    }
+    &-count{
+        padding:3px 5px;
+        top: 3px;
+    }
+}
+.program-tag{
+    background-color: transparent;
+    padding: 2px 8px;
+    border: 1px solid;
+    @include border-radius (4px);
+    font-size:12px;
+    font-weight:500;
+    font-family:$font-Muso500;
+    letter-spacing: letterspacing-to-ems(100);
+    &.yellow{
+        border-color:$color-secondary-dark;
+        color:$color-secondary-dark;
+    }
+    &.blue{
+        border-color:$color-tertiary-light;
+        color:$color-tertiary-light;
+    }
+    &.red{
+        border-color:$color-red-dark;
+        color:$color-red-dark;
+    }
+    &.green{
+        border-color:$color-green;
+        color:$color-green;
+    }
+    &.purple{
+        border-color: #7d7fd8;
+        color: #7d7fd8;
+        margin-left:5px;
+    }
+    &.dark-blue{
+        border-color: #71cfee;
+        color: #71cfee !important;
+        margin-left:5px;
+    }
+}
+.heading {
+    &-secondary{
+        font-family: $font-Tisa;
+        font-size: 2.4rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        display: inline-block;
+        border-bottom: 3px solid transparent;
+        border-image: linear-gradient(90deg ,$color-secondary-dark, $color-tertiary-dark-1);
+        border-image-slice:0 0 1;
+        line-height: 35px;
+    }
+    &-tertiary{
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        margin-top: 0;
+        display: inline-block;
+        color: $c-primary;
+        font-family: $font-Muso500;
+    }
+}
+.paragraph{
+    font-size: $default-font-size;
+    &:not(:last-child){
+        margin-bottom: 3rem;
+    }
+}
+
+strong{
+    font-family: $font-Muso500;
+}
+.slimScroll {
+    -webkit-overflow-scrolling: touch;
+    &Div {
+        overflow: visible !important;
+    }
+}
+.data-2 {
+    display: none;
+}
+.p-relative{
+    position: relative;;
+}
+.d {
+    &-block {
+        display: block;
+    }
+    &-inline {
+        display: inline-block;
+    }
+    &-flex {
+        @include flex;
+    }
+}
+.visible {
+    visibility: visible !important;
+}
+.v-middle{
+    vertical-align: middle;
+}
+.l-h-input {
+    line-height: 8.4rem;
+}
+.border-none {
+    border: 0 !important;
+}
+.overflow-hidden {
+    overflow: hidden !important;
+}
+.text {
+    &-highlight{
+        color: $c-primary;
+        font-family: $font-Muso700 !important;
+    }
+    &-light{
+        font-family: $font-Muso500;
+    }
+    &-inactive{
+        color:rgba(105, 114, 121, 0.6);
+        font-size:1.1rem;
+        font-style: italic;
+    }
+}
+.font-blue{
+    color:$color-tertiary-light;
+}
+.f-12{
+    font-size:12px;
+}
+.f-10{
+    font-size:10px;
+}
+.ft-normal{
+    font-family: "MuseoSans-300" !important;
+    font-weight: normal;
+}
+.onpreview{
+    .dz-error-message{
+        display: block !important;
+    }
+}
+.alert{
+    padding: 10px;
+    margin-bottom: 10px;
+    @include border-radius (0);
+    &.alert-green {
+        color: $color-white;
+        background-color: $color-green-dark;
+    }
+}
+.h-auto{
+    height:auto !important;
+}
+.pipe-data{
+    color: $c-primary;
+}
+.close{
+    &, &:hover, &:focus {
+        @include opacity (1);
+    }
+}
+.req-mark{
+    margin-left:5px;
+    text-shadow: none;
+}
+
+@-moz-document url-prefix() { //Mozilla Browser
+    [type="checkbox"]:not(:checked) + label::after, [type="checkbox"]:checked + label::after {
+        content: '\2713';
+        top: 1px !important;
+        font-weight: bold;
+    }
+}
+
+@supports (-ms-ime-align:auto) { // Edge Browser 
+    [type="checkbox"]:not(:checked) + label::after, [type="checkbox"]:checked + label::after {
+        content: '\2713';
+        top: 1px !important;
+        font-weight: bold;
+    }
+}
+.data-loading{
+    padding:4px 0 3px 0px;
+}
+.pt-event{
+    pointer-events: none !important;
+}
+.pt-cursor{
+    cursor: not-allowed !important;
+}
+.cursor-allow{
+    cursor: pointer !important;
+}
+.w {
+    &-auto {
+        width: auto !important;
+    }
+    &-12{
+        width:12px;
+    }
+    
+    &-15 {
+        width: 1.5rem !important;
+    }
+    &-20{
+        width:20px;
+    }
+    &-30{
+        width: 30px !important;
+        height:30px !important;
+    }
+    &-100{
+        width: 100% !important;
+    }
+}
+.grid-item{
+    a{
+        &:hover, &:focus{
+            text-decoration: none;
+        }
+    }
+}
+.paid-dollar {
+    position: absolute;
+    left: 0;
+}
+// .lg-tooltip{
+//     .tooltip-inner{
+//         width: 500px;
+//         max-width: 500px;
+//     }
+// }
+
+.lesscontent{
+    max-height: 120px;
+    overflow: hidden;
+}
+.morecontent{
+    max-height: auto;
+    overflow: hidden;
+}

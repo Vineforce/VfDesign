@@ -1,0 +1,97 @@
+/* Theme Fonts */
+@font-face {
+    font-family: 'TisaOT';
+    src: url('#{$font-path}/Tisa/TisaOT.eot?#iefix') format('embedded-opentype'), 
+        url('#{$font-path}/Tisa/TisaOT.otf') format('opentype'), 
+        url('#{$font-path}/Tisa/TisaOT.woff') format('woff'), 
+        url('#{$font-path}/Tisa/TisaOT.ttf') format('truetype'), 
+        url('#{$font-path}/Tisa/TisaOT.svg#TisaOT') format('svg');
+}
+// @font-face {
+//     font-family: 'TisaOT-Light';
+//     src: url('#{$font-path}/Tisa/TisaOT-Light.eot?#iefix') format('embedded-opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Light.otf') format('opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Light.woff') format('woff'), 
+//         url('#{$font-path}/Tisa/TisaOT-Light.ttf') format('truetype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Light.svg#TisaOT-Light') format('svg');
+// }
+@font-face {
+    font-family: 'TisaOT-Medi';
+    src: url('#{$font-path}/Tisa/TisaOT-Medi.eot?#iefix') format('embedded-opentype'), 
+        url('#{$font-path}/Tisa/TisaOT-Medi.otf') format('opentype'), 
+        url('#{$font-path}/Tisa/TisaOT-Medi.woff') format('woff'), 
+        url('#{$font-path}/Tisa/TisaOT-Medi.ttf') format('truetype'), 
+        url('#{$font-path}/Tisa/TisaOT-Medi.svg#TisaOT-Medi') format('svg');
+}
+// @font-face {
+//     font-family: 'TisaOT-Bold';
+//     src: url('#{$font-path}/Tisa/TisaOT-Bold.eot?#iefix') format('embedded-opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Bold.otf') format('opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Bold.woff') format('woff'), 
+//         url('#{$font-path}/Tisa/TisaOT-Bold.ttf') format('truetype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Bold.svg#TisaOT-Bold') format('svg');
+// }
+// @font-face {
+//     font-family: 'TisaOT-Thin';
+//     src: url('#{$font-path}/Tisa/TisaOT-Thin.eot?#iefix') format('embedded-opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Thin.otf') format('opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Thin.woff') format('woff'), 
+//         url('#{$font-path}/Tisa/TisaOT-Thin.ttf') format('truetype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Thin.svg#TisaOT-Thin') format('svg');
+// }
+// @font-face {
+//     font-family: 'TisaOT-Black';
+//     src: url('#{$font-path}/Tisa/TisaOT-Black.eot?#iefix') format('embedded-opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Black.otf') format('opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Black.woff') format('woff'), 
+//         url('#{$font-path}/Tisa/TisaOT-Black.ttf') format('truetype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Black.svg#TisaOT-Black') format('svg');
+// }
+// @font-face {
+//     font-family: 'TisaOT-Xbold';
+//     src: url('#{$font-path}/Tisa/TisaOT-Xbold.eot?#iefix') format('embedded-opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Xbold.otf') format('opentype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Xbold.woff') format('woff'), 
+//         url('#{$font-path}/Tisa/TisaOT-Xbold.ttf') format('truetype'), 
+//         url('#{$font-path}/Tisa/TisaOT-Xbold.svg#TisaOT-Xbold') format('svg');
+// }
+// @font-face {
+//     font-family: 'MuseoSans-100';
+//     src: url('#{$font-path}/MuseoSans/MuseoSans-100.eot?#iefix') format('embedded-opentype'),  
+//         url('#{$font-path}/MuseoSans/MuseoSans-100.otf')  format('opentype'),
+//         url('#{$font-path}/MuseoSans/MuseoSans-100.woff') format('woff'), 
+//         url('#{$font-path}/MuseoSans/MuseoSans-100.ttf')  format('truetype'), 
+//         url('#{$font-path}/MuseoSans/MuseoSans-100.svg#MuseoSans-100') format('svg');
+// }
+@font-face {
+    font-family: 'MuseoSans-300';
+    src: url('#{$font-path}/MuseoSans/MuseoSans-300.eot?#iefix') format('embedded-opentype'),  
+        url('#{$font-path}/MuseoSans/MuseoSans-300.otf')  format('opentype'),
+        url('#{$font-path}/MuseoSans/MuseoSans-300.woff') format('woff'), 
+        url('#{$font-path}/MuseoSans/MuseoSans-300.ttf')  format('truetype'), 
+        url('#{$font-path}/MuseoSans/MuseoSans-300.svg#MuseoSans-300') format('svg');
+}
+@font-face {
+    font-family: 'MuseoSans-500';
+    src: url('#{$font-path}/MuseoSans/MuseoSans-500.eot?#iefix') format('embedded-opentype'),  
+        url('#{$font-path}/MuseoSans/MuseoSans-500.otf')  format('opentype'),
+        url('#{$font-path}/MuseoSans/MuseoSans-500.woff') format('woff'), 
+        url('#{$font-path}/MuseoSans/MuseoSans-500.ttf')  format('truetype'), 
+        url('#{$font-path}/MuseoSans/MuseoSans-500.svg#MuseoSans-500') format('svg');
+}
+@font-face {
+    font-family: 'MuseoSans-700';
+    src: url('#{$font-path}/MuseoSans/MuseoSans-700.eot?#iefix') format('embedded-opentype'),  
+        url('#{$font-path}/MuseoSans/MuseoSans-700.otf')  format('opentype'),
+        url('#{$font-path}/MuseoSans/MuseoSans-700.woff') format('woff'), 
+        url('#{$font-path}/MuseoSans/MuseoSans-700.ttf')  format('truetype'), 
+        url('#{$font-path}/MuseoSans/MuseoSans-700.svg#MuseoSans-700') format('svg');
+}
+// @font-face {
+//     font-family: 'MuseoSans-900';
+//     src: url('#{$font-path}/MuseoSans/MuseoSans-900.eot?#iefix') format('embedded-opentype'),  
+//         url('#{$font-path}/MuseoSans/MuseoSans-900.otf')  format('opentype'),
+//         url('#{$font-path}/MuseoSans/MuseoSans-900.woff') format('woff'), 
+//         url('#{$font-path}/MuseoSans/MuseoSans-900.ttf')  format('truetype'), 
+//         url('#{$font-path}/MuseoSans/MuseoSans-900.svg#MuseoSans-900') format('svg');
+// }

@@ -1,0 +1,142 @@
+.dashboard{
+    height: 100%;
+}
+.panel{
+    @include box-shadow (0px 2px 7.76px 0.24px rgba(198, 198, 198, 0.13));
+    border: 1px solid rgb(228, 238, 239);
+    @include border-radius (0);
+    padding: 10px;
+    &-heading{
+        padding: 0px;
+        padding-bottom: 10px;
+        background-color: $color-white;
+        .dashboard {
+            &-heading{
+                font-size: 1.2rem;
+                font-family: $font-Muso500;
+                color: $color-grey-dark-4;
+                text-transform: uppercase;
+            }
+            &-count{
+                font-size: 2.4rem;
+                font-family: $font-Muso700;
+                color: $color-tertiary-light;
+            }
+        }
+        .panel-title{
+            display: inline-block;
+            &-img{
+                display: inline-block;
+                img{
+                    width: 30px;
+                    margin-top: -30px;
+                }
+            }
+            &-data{
+                display: inline-block;
+                font-size: 1.4rem;
+                font-family: $font-Muso500;
+                color: $c-primary;
+                margin-left: 10px;
+                span{
+                    color: rgba(105,114,121,0.6); 
+                    font-size: 1.1rem;
+                    font-family: $font-Muso;
+                }
+            }
+        }
+        .btn-droup-dashboard{
+            margin-top: 9px;
+            border: 1px solid $color-grey-light-4;
+            @include border-radius (4px);
+            .btn,
+            &:link,
+            &:visited{
+                padding: .7rem 2.5rem;
+                font-size: 1.2rem;      
+                text-transform: capitalize;
+                color: $color-grey-dark-4;          
+                &:not(:last-child){
+                    border-right: 1px solid $color-grey-light-4;
+                }
+                &:hover,
+                &:active,
+                &:focus,
+                &.active{
+                    background-color: $color-tertiary-light;
+                    color: $color-white;
+                    @include box-shadow (none);
+                    outline: none;
+                    &:not(:last-child){
+                        border-right: 1px solid $color-tertiary-light;
+                    }
+                }
+            }
+        }
+    }
+    &-footer{
+        padding: 0;
+        font-size: 1.1rem;
+        background-color: $color-white;
+        border-top: 0;
+        color: rgba(105,114,121,0.6);
+        .dashboard-help-text{
+            padding: 10px 15px;
+        }
+    }
+    &-topdata{
+        .panel{
+            padding: 0;
+            min-height: 129px;
+            &-heading{
+                padding: 10px;
+            }
+        }
+    }
+    &-middle{
+        .panel{
+            &-heading{            
+                border-color: $color-grey-light-4;
+            }
+            &-body{
+                position: relative;
+                .withno-data{
+                    // padding: 100px;
+                    height: 250px;
+                }
+                .edition-static{
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    
+                    @include transform(translate(-50%, -50%)); 
+                    text-align: center;
+                    h4{
+                        font-family: 'TisaOT-Medi';
+                        color: $color-secondary-medium;
+                    }
+                    p{
+                        color: rgba(105,114,121,0.6);
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+            &-footer{            
+                .view-link{
+                    font-family: $font-Tisa; 
+                    color: $color-tertiary-light;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+.progress{
+    height: 8px;
+    @include border-radius (0);
+    @include box-shadow (0px 2px 7.76px 0.24px rgba(198, 198, 198, 0.13));
+    &-bar{
+        background-image: linear-gradient(90deg , $color-tertiary-dark 0%, $color-tertiary-light 50%, $color-tertiary-medium 100%);
+        @include box-shadow (none);
+    }
+}
