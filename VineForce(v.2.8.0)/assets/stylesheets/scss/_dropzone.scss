@@ -1,0 +1,389 @@
+// The MIT License
+// Copyright (c) 2012 Matias Meno <m@tias.me>
+
+.dz-message {
+	border: 1px dashed #8f9496;
+	padding: 10px 20px;
+	@include border-radius (4px);
+  	background-color: #f8fbfc;  
+	  @include box-shadow (0px 2px 3.88px 0.12px rgba(198, 198, 198, 0.13));
+}
+.dz-drag-hover{
+	.dz-message {
+		border: 1px solid#3977ad;
+	}
+}
+.dropzone-attachments{
+	.dz-clickable {
+		cursor: pointer;
+		
+		* {
+			cursor: default;
+		}
+		.dz-message, .dropzone *  {
+			cursor: pointer;
+		}
+		img {
+			@include transition (all, 0.3s ease);
+			background-color: #f8fbfc;  
+			position: relative;
+			z-index: 2;
+			&.file1 {
+				@include transform (rotate(-18deg));
+				top: 13px;
+				right: -11px;
+			}
+			&.file2 {
+				top: 0px;
+			}
+			&.file3 {
+				@include transform (rotate(18deg));
+				top: 9px;
+				left: -11px;
+				z-index: 1;
+			}
+		}
+		&:hover, &.dz-drag-hover {
+			border-width:0;
+			img {
+				&.file1 {
+					@include transform (rotate(-20deg));
+					top: 6px;
+					right: -9px;
+				}
+				&.file2 {
+					top: -8px;
+				}
+				&.file3 {
+					@include transform (rotate(20deg));
+					top: 2px;
+					left: -9px;
+				}
+			}
+		}
+	}
+	.dz-started {
+		border: none;
+		padding: 0;
+		@include border-radius (0);
+		background-color: transparent;
+		@include box-shadow (none);
+		
+		.dz-message {
+			margin-top: 0;
+			.file1,.file2,.file3,.cloud-img,br{
+				display: none;
+			}
+		}
+	}  
+	.dz-drag-hover {
+		border-width: 0;
+	}
+	.dz-clickable ~ .modal-grid {
+		display: none;
+	}
+	.dz-error-mark, .dz-success-mark{
+		svg{
+			display: none;
+		}
+		&:before {
+			display: inline-block;
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: 16px;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+		}
+	}
+	.dz-error-mark {
+		&:before {
+			content: "";
+			color: $color-red-dark;
+		}
+	}
+	// .dz-success-mark {
+	// 	&:before {
+	// 		content: "\e013";
+	// 		color: $color-success;
+	// 	}
+	// }
+	.dz-clickable.dz-started ~ .modal-grid {
+		display: inline-block;
+	}
+}
+
+.dz-message {
+	text-align: center;
+	margin:0 0 1em;
+	.drag{
+		font-size: 3rem;
+		letter-spacing: 2px;
+		font-family: $font-Muso700;
+		color: $c-primary;
+		display: block;
+		margin-bottom: 0;
+		span{
+			  font-size: 1.4rem;
+			  font-family: $font-Muso;
+			  color: $color-grey-dark-4;
+			display: block;
+		}
+	}
+  }
+.text-anchor{
+	color: $color-tertiary-light;
+	text-decoration: none;
+	cursor: pointer;
+}
+.dz-preview {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+	padding: 15px 0;
+	.activity {
+		position: absolute;
+		right: 5px;
+		top: 20px;
+	}
+	&:hover {
+		.dz-details {
+			@include opacity (1);
+		}
+		.activity{
+			.action{
+				.btn-link{
+					visibility: visible;
+					z-index: 999;
+				}
+			} 
+		} 
+	}
+	&.dz-file-preview {
+		.dz-image {
+			@include border-radius (0);
+			background: $color-grey-dark-2;
+			background: linear-gradient($color-grey-light-2, #ddd); 
+		}
+		.dz-details {
+			@include opacity (1);
+		  }	   
+	}
+	&.dz-image-preview {
+		background:transparent;
+		.dz-details {
+			@include transition (opacity, 0.2s linear);
+		}  
+	}
+	.dz-remove {
+		font-size: 14px;
+		text-align: center;
+		display: block;
+		cursor: pointer;
+		border: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.dz-details {
+		@include opacity (1);
+		font-size: 13px;
+		min-width: 100%;
+		max-width: 100%;
+		padding: 10px 0;
+		float: left;
+		display: inline-block;
+		color: rgba($color-black, 0.9);
+		line-height: 150%;
+		.dz-size {
+			margin-bottom: 0;
+			font-size: 12px;
+			float: right;
+			margin-right: 3rem;
+			span {
+				// background-color: rgba($color-white, 0.4);
+				padding: 0 0.4em;
+				white-space: pre-line;
+				color: $color-grey-dark-4;
+				font-size: 1.1rem;
+				@include border-radius (3px);  
+				  letter-spacing: .3px;
+			}
+		}
+		.dz-filename {
+			white-space: nowrap; 
+			font-size: 14px;
+			font-family: $font-Muso500;
+			padding:0px 65px 0px 0;
+			line-height: 16px;
+			a{
+				color: rgba($color-black, 0.9);
+				text-decoration: none;
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+				max-width: 600px;
+				display: inline-block;
+				vertical-align: middle;
+					&:hover{
+					color:$color-tertiary-light;
+				}
+			}
+		}
+	}
+	.dz-image {
+		overflow: hidden;
+		position: relative;
+		display: none;
+		z-index: 10;
+		float: left;
+		img {
+			display: block;      
+			width: 60px;
+			height: 60px;
+		}
+	}
+	&.dz-success {
+		.dz-success-mark {
+			@include animation (slide-in 3s cubic-bezier(0.77, 0, 0.175, 1));
+			@include opacity (1);
+		}
+	}
+	&.dz-error {
+		.dz-error-mark {
+			@include animation (slide-in 3s cubic-bezier(0.77, 0, 0.175, 1));
+			@include opacity (1);
+		}
+		.dz-error-message {
+			display: block;
+		}
+		&:hover {
+			.dz-error-message {
+				@include opacity (1);
+				pointer-events: auto;
+			}
+		}
+	}
+	.dz-success-mark, .dz-error-mark {
+		cursor: pointer;
+		@include opacity (0);
+		z-index: 500;
+		position: absolute;
+		display: block;
+		top: 15px;
+		right: 0px;
+		font-size: 2rem;
+		span {
+			display: block;
+		}
+	}
+	&.dz-processing {
+		.dz-progress {
+			@include transition (all 0.2s linear);
+			@include opacity (1);
+		}
+	}
+	&.dz-complete {
+		.dz-progress {
+			@include transition (opacity 0.4s ease-in);
+			@include opacity (1);
+		}
+	}
+	&:not(.dz-processing) {
+		.dz-progress {
+			@include animation (pulse 6s ease infinite);
+		}
+	}
+	.dz-progress {
+		@include opacity (1);
+		z-index: 1000;
+		pointer-events: none;
+		height: 4px;
+		width: 100%;
+		margin-left: 0;
+		background: #aaaaaa;
+		@include transform (scale(1));
+		@include border-radius (0);
+		overflow: hidden;
+		position: relative;
+		.dz-upload {
+			background:#76e99e;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: 0;
+			@include transition ( width 300ms ease-in-out);
+		}
+	}
+	.dz-error-message {
+		pointer-events: none;
+		z-index: 1000;
+		display: block;
+		display: none;
+		@include opacity (1);
+		@include transition ( opacity 0.3s ease);
+		@include border-radius (8px);
+		font-size: 13px;
+		bottom: 15px;
+		left: 0;
+		width: auto;
+		padding: 0;
+		color: $color-grey-dark-4; 
+	}
+}
+.activity1{
+	.action{		
+		.dropdown{
+			.dropdown-menu{
+				display: block !important;
+			}
+		}
+		.btn-link{
+			@include box-shadow (0px 4px 7px rgba(198, 198, 198, 0.13));
+			padding: 0px 5px !important;
+			line-height: 0;
+			@include border-radius (4px);
+			border: 1px solid $color-grey-light-1;
+			background-color: $color-white;
+			right: 0px;
+			&:hover, &:focus{
+				color:inherit;
+				text-decoration: none;
+				outline: none;
+			}
+			.ellipsis{
+				background: $color-grey-dark-4;
+				width: 3px;
+				height: 3px;
+				@include border-radius (50%);
+				margin: 4px 0.5px;
+				float: left;
+			}		
+		}	
+	}
+}
+
+.ui {
+	&-fileupload {
+		&-buttonbar {
+			position: relative;
+		}
+		&-choose {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			input {
+				width: 100%;
+				height: 100%;
+				opacity: 0;
+				cursor: pointer;
+			}
+			.ui-button-text {
+				display: none;
+			}
+		}
+	}
+}
+.tab-modal .modal-dialog .modal-content .modal-body .tab-content .tab-pane#secAttachement .modal-grid, .tab-modal .modal-dialog .modal-content .modal-body .tab-content .tab-pane#secAttachementedit .modal-grid {
+	height: calc(100% - 200px) !important;
+	}

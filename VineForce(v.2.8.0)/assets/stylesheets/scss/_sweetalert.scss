@@ -1,0 +1,523 @@
+// variables
+$green:$color-success;
+$yellow:$color-secondary-medium;
+$yellow-light:$color-secondary-medium;
+$blue-hoki: #46b8da;
+$blue-hoki-light:#5bc0de;
+$red:$color-red-dark;
+$red-light:$color-red-dark;
+
+.showSweetAlert {
+    @include animation (showSweetAlert 0.3s);
+    &[data-animation=none] {
+        @include animation (none);
+    }
+    &[data-animation=slide-from-top] {
+        @include animation ( slideFromTop 0.3s);
+    }
+    &[data-animation=slide-from-bottom] {
+        @include animation (slideFromBottom 0.3s);
+    }
+}
+.hideSweetAlert {
+    @include animation (hideSweetAlert 0.3s);
+    &[data-animation=none] {
+        @include animation (none);
+    }
+    &[data-animation=slide-from-top] {
+        @include animation (slideToTop 0.3s);
+    }
+    &[data-animation=slide-from-bottom] {
+        @include animation (slideToBottom 0.3s);
+    }
+}
+.animateSuccessTip {
+    @include animation (animateSuccessTip 0.75s);
+}
+.animateSuccessLong {
+    @include animation (animateSuccessLong 0.75s);
+}
+.animateErrorIcon {
+    @include animation (animateErrorIcon 0.5s);
+}
+.sa-icon.sa-success.animate::after {
+    @include animation (rotatePlaceholder 4.25s ease-in);
+}
+.pulseWarning {
+    @include animation (pulseWarning 0.75s infinite alternate);
+}
+.animateXMark {
+    @include animation (animateXMark 0.5s);
+}
+.pulseWarningIns {
+    @include animation (pulseWarningIns 0.75s infinite alternate);
+}
+body.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+.sweet-overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+    z-index: 1040;
+}
+.sweet-alert {
+    background-color: $color-white;
+    width: 478px;
+    padding: 17px;
+    @include border-radius (0 !important);
+    text-align: center;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -256px;
+    margin-top: -200px;
+    overflow: hidden;
+    display: none;    
+    -webkit-filter: blur(0px) !important;
+    -moz-filter: blur(0px) !important;
+    -o-filter: blur(0px) !important;
+    -ms-filter: blur(0px) !important;
+    filter: blur(0px) !important;
+     @include box-shadow (0 0px 9px rgba($color-black, 0.3));
+    z-index: 2000;
+    h2{
+        font-size: 20px;
+        padding-top: 5px;
+        color: $color-grey-dark-4;
+        font-family: $font-Muso500;
+    }
+    p{
+        font-size: 14px;
+        margin: 20px 0;
+        color: $color-grey-dark-4;
+    }
+    .btn{
+        font-size: 14px;
+        padding: 8px 14px;
+        @include border-radius (4px);
+        border: 1px solid transparent;
+    }
+    .confirm{
+        background-image: linear-gradient($color-tertiary-dark 0%, $color-tertiary-light 50%, $color-tertiary-medium 100%);
+        color: $color-white;
+        width: 100%;
+        transition: all .9s;
+        border: none !important;
+        padding: 5px 15px !important;
+        &:hover, &:focus, &:active{
+            outline: none;
+            color: rgba($color-white, 0.8);
+            background-image: linear-gradient($color-tertiary-dark 0%, $color-tertiary-light 50%, $color-tertiary-medium 100%);
+            @include opacity (0.8);
+        }
+    }
+    .cancel{
+        border: 1px solid $color-grey-dark-4 !important;
+        color: $color-grey-dark-4;
+        background-color: transparent;
+        padding: 4px 15px !important;
+        transition: all .9s;
+        &:hover, &:focus, &:active{
+            background-color: $color-grey-dark-4;
+            @include box-shadow (none);
+            color: $color-white;
+        }
+    }
+    .form-group {
+        display: none;
+        .sa-input-error {
+            display: none;
+        }
+    }
+    &.show-input {
+        .form-group {
+            display: block;
+        }
+    }
+    .sa-confirm-button-container {
+        display: inline-block;
+        position: relative;
+    }
+    .la-ball-fall {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -27px;
+        margin-top: -9px;
+        @include opacity (0);
+        visibility: hidden;
+    }
+    button {
+        &[disabled] {
+            @include opacity (0.6);
+            cursor: default;
+        }
+        &.confirm[disabled] {
+            color: transparent;
+            ~ .la-ball-fall {
+                @include opacity (1);
+                visibility: visible;
+                transition-delay: 0s;
+            }
+        }
+        &::-moz-focus-inner {
+            border: 0;
+        }
+    }
+    .sa-icon {
+        width: 80px;
+        height: 80px;
+        border: 4px solid gray;
+        @include border-radius (50%);
+        margin: 20px auto;
+        position: relative;
+        @include box-sizing(content-box);
+        &.sa-error {
+            border-color: $red;
+            .sa-x-mark {
+                position: relative;
+                display: block;
+            }
+            .sa-line {
+                position: absolute;
+                height: 5px;
+                width: 47px;
+                background-color: $red-light;
+                display: block;
+                top: 37px;
+                @include border-radius (2px);
+                &.sa-left {
+                    @include transform (rotate(45deg));
+                    left: 17px;
+                }
+                &.sa-right {
+                    @include transform (rotate(-45deg));
+                    right: 16px;
+                }
+            }
+        }
+        &.sa-warning {
+            border-color: $yellow;
+            .sa-body {
+                position: absolute;
+                width: 5px;
+                height: 47px;
+                left: 50%;
+                top: 10px;
+                @include border-radius (2px);
+                margin-left: -2px;
+                background-color: $yellow-light;
+            }
+            .sa-dot {
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                @include border-radius (50%);
+                margin-left: -3px;
+                left: 50%;
+                bottom: 10px;
+                background-color: $yellow-light;
+            }
+        }
+        &.sa-info {
+            border-color: $blue-hoki;
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                background-color: $blue-hoki-light;
+            }
+            &::before {
+                width: 5px;
+                height: 29px;
+                left: 50%;
+                bottom: 17px;
+                @include border-radius (2px);
+                margin-left: -2px;
+            }
+            &::after {
+                width: 7px;
+                height: 7px;
+                @include border-radius (50%);
+                margin-left: -3px;
+                top: 19px;
+              }
+        }
+        &.sa-success {
+            border-color: $green;
+            &::before, &::after {
+                @include border-radius (50%);
+                position: absolute;
+                width: 60px;
+                height: 120px;
+                background: $color-white;
+                @include transform (rotate(45deg));
+            }
+            &::before {
+                @include border-radius (120px 0 0 120px);
+                top: -7px;
+                left: -33px;
+                @include transform (rotate(-45deg));
+                @include transform-origin (60px 60px);
+            }
+            &::after {
+                @include border-radius (0 120px 120px 0);
+                top: -11px;
+                left: 30px;
+                @include transform (rotate(-45deg));
+                @include transform-origin (0px 60px);
+            }
+            .sa-placeholder {
+                width: 80px;
+                height: 80px;
+                border: 4px solid $green;
+                @include border-radius (50%);
+                @include box-sizing(content-box);
+                position: absolute;
+                left: -4px;
+                top: -4px;
+                z-index: 2;
+            }
+            .sa-fix {
+                width: 5px;
+                height: 90px;
+                background-color: $color-white;
+                position: absolute;
+                left: 28px;
+                top: 8px;
+                z-index: 1;
+                @include transform (rotate(-45deg));
+            }
+            .sa-line {
+                height: 5px;
+                background-color: $green;
+                display: block;
+                @include border-radius (2px);
+                position: absolute;
+                z-index: 2;
+                &.sa-tip {
+                    width: 25px;
+                    left: 14px;
+                    top: 46px;
+                    @include transform (rotate(45deg));
+                }
+                &.sa-long {
+                    width: 47px;
+                    right: 8px;
+                    top: 38px;
+                    @include transform (rotate(-45deg));
+                }
+            }
+        }
+        &.sa-custom {
+            background-size: contain;
+            @include border-radius (0);
+            border: none;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+        .btn-default {
+            border: 1px solid $color-grey-light-5;
+            &:focus {
+                border-color: $color-grey-light-5;
+                outline: 0;
+                @include box-shadow (inset 0 1px 1px rgba($color-black,.075), 0 0 8px rgba($color-grey-light-5, 0.6));
+              }
+        }
+        .btn-success {
+            border: 1px solid $green;
+            &:focus {
+                border-color: $green;
+                outline: 0;
+                @include box-shadow (inset 0 1px 1px rgba($color-black,.075), 0 0 8px rgba($green, 0.6));
+            }
+        }
+        .btn-info {
+            border: 1px solid $blue-hoki;
+            &:focus {
+                border-color: $blue-hoki;
+                outline: 0;
+                @include box-shadow ( inset 0 1px 1px rgba($color-black,.075), 0 0 8px rgba($blue-hoki, 0.6));
+            }
+        }
+        .btn-danger {
+            border: 1px solid #d43f3a;
+            &:focus {
+                border-color: #d43f3a;
+                outline: 0;
+                @include box-shadow (inset 0 1px 1px rgba($color-black,.075), 0 0 8px rgba(212, 63, 58, 0.6));
+            }
+        }
+        .btn-warning {
+            border: 1px solid $yellow;
+            &:focus {
+                border-color: $yellow;
+                outline: 0;
+                @include box-shadow (inset 0 1px 1px rgba($color-black,.075), 0 0 8px rgba($yellow, 0.6));
+            }
+        }
+    }
+}
+@media all and (max-width: 767px) {
+    .sweet-alert {
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        left: 15px;
+        right: 15px;
+    }
+}
+.la-ball-fall {
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    font-size: 0;
+    color: $color-white;
+    width: 54px;
+    height: 18px;
+    > div {
+        position: relative;
+        @include box-sizing(border-box);
+        display: inline-block;
+        float: none;
+        background-color: currentColor;
+        border: 0 solid currentColor;
+        width: 10px;
+        height: 10px;
+        margin: 4px;
+        @include border-radius (100%);
+        @include opacity (0);
+        @include animation (ball-fall 1s ease-in-out infinite);
+        &:nth-child(1) {
+            @include animation-delay (-200ms);
+        }
+        &:nth-child(2) {
+            @include animation-delay (-100ms);
+        }
+        &:nth-child(3) {
+            @include animation-delay (0ms);
+        }
+    }
+    &.la-dark {
+        color: #333;
+    }
+    &.la-sm {
+        width: 26px;
+        height: 8px;
+        > div {
+            width: 4px;
+            height: 4px;
+            margin: 2px;
+        }
+    }
+    &.la-2x {
+        width: 108px;
+        height: 36px;
+        > div {
+            width: 20px;
+            height: 20px;
+            margin: 8px;
+        }
+    }
+    &.la-3x {
+        width: 162px;
+        height: 54px;
+        > div {
+            width: 30px;
+            height: 30px;
+            margin: 12px;
+        }
+    }
+}
+
+// New SweetAlert
+.swal {
+    &-title {
+        font-family:$font-Tisa;
+        color: $c-primary;
+        font-size: 3rem;
+        font-weight: 500;
+    }
+    &-text{
+        font-size:1.8rem;
+        color:rgba(105, 114, 121, 0.6);
+        text-align: center;
+    }
+    &-button{
+        font-size: 14px;
+        @include border-radius (4px);
+        &--cancel{
+            border: 1px solid $color-grey-dark-4 !important;
+            color: $color-grey-dark-4;
+            background-color: transparent;
+            padding: 4px 15px !important;
+            @include transition(all .9s); 
+            text-transform: uppercase;
+            &:hover{
+                background-color: $color-grey-dark-4;
+                @include box-shadow (none);
+                color: $color-white;
+            }
+        }
+        &--confirm{
+            background-image: linear-gradient($color-tertiary-dark 0%, $color-tertiary-light 50%, $color-tertiary-medium 100%);
+            color: $color-white;
+            width: 100%;
+            transition: all .9s;
+            border: none !important;
+            padding: 5px 15px !important;
+            text-transform: uppercase;
+            &:hover{
+                outline: none;
+                color: rgba($color-white, 0.8);
+                background-image: linear-gradient($color-tertiary-dark 0%, $color-tertiary-light 50%, $color-tertiary-medium 100%);
+                @include opacity (0.8);
+            }
+        }
+        &:focus{
+            @include box-shadow (none);
+        }
+    }
+    &-footer{
+        text-align: center;
+    }
+    &-icon {
+        &--warning{
+            border-color: $color-secondary-dark;
+            &__body, &__dot {
+                background-color: $color-secondary-dark;
+            }
+        }
+        &--error, &--error__line {
+            border-color: $color-red-dark;
+        }
+        &--success {
+            &, &__ring {
+                border-color: $green;
+            }
+            &__line {
+                background-color: $green;
+            }
+        }
+    }
+    &-modal {
+        &.fileuploader {
+            .swal-icon--warning {
+                border: 6px solid transparent;
+                @include border-radius (50%);
+                border-top: 6px solid $color-tertiary-light;
+                border-bottom: 6px solid $color-tertiary-light;
+                width: 60px;
+                height: 60px;
+                @include animation (spin 1.5s linear infinite);
+                &__body, &__dot {
+                    display: none;
+                }
+            }
+        }
+    }
+}
